@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class CrudUltilServiceImplTest {
 
@@ -22,5 +23,10 @@ class CrudUltilServiceImplTest {
         Author save = (Author) crudUltilService.save(author, repository);
         assertEquals(23,save.getAge());
 
+    }
+    @Test
+    void findById(){
+        var object = (Author)crudUltilService.findById(1, repository, Author.class);
+        assertEquals(1,object.getId());
     }
 }
