@@ -2,6 +2,7 @@ package com.example.demo.util.impl;
 
 import com.example.demo.model.Author;
 import com.example.demo.repo.AuthorRepository;
+import com.example.demo.repo.BookRepository;
 import com.example.demo.util.CrudUntilService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,14 @@ class CrudUltilServiceImplTest {
     CrudUntilService crudUltilService;
     @Autowired
     AuthorRepository repository;
+    @Autowired
+    BookRepository bookRepository;
 
     @Test
     void save() {
-        var author = new Author("iqbal hasan", "i@gmail.com", 23);
+        var author = new Author("Mijan", "M@gmail.com", 24);
         Author save = (Author) crudUltilService.save(author, repository);
-        assertEquals(23,save.getAge());
+        assertEquals(24,save.getAge());
 
     }
     @Test
