@@ -32,4 +32,11 @@ class CrudUltilServiceImplTest {
         var object = (Author)crudUltilService.findById(1, repository, Author.class);
         assertEquals(1,object.getId());
     }
+
+    @Test
+    void update() {
+        var author = new Author("Mijan", "M@gmail.com", 25);
+        var update =(Author) crudUltilService.update(author, repository, 2);
+        assertEquals(2,update.getId());
+    }
 }
